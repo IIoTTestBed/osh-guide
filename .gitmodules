@@ -1,0 +1,3 @@
+[submodule "submodules/mechanical-rules"]
+	path = submodules/mechanical-rules
+	url = https://iversion.informatik.htw-dresden.de/smartproductionsystems/projects/oshop/osh-design-guideline-mechanical-rules
