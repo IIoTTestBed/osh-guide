@@ -1,4 +1,4 @@
-# OSH-Entwicklungsrichtlinie
+# OSH-Guide
 
 [TOC]
 
@@ -6,20 +6,32 @@
 ## Vorbemerkungen
 
 Komponenten frei und offen zu entwickeln unterscheidet sich in vielen zu bewältigenden Aspekten stark von der traditionellen firmeninternen Entwicklungsweise.
-Viele Abläufe wie sie in der modernen Softwareentwicklung mittels Versionierungssystemen kollaborativ über das Internet stattfinden haben nicht selten auch ein unternehmensinternes (manuelles) Pendant.
-So müssen Dokumente einen Freigabeprozess durchlaufen, sowie nachträgliche Anpassungen in die Informationsbasis eingepflegt werden.
+Viele Abläufe wie sie in der modernen Softwareentwicklung mittels Versionsverwaltungssystemen kollaborativ über das Internet stattfinden haben nicht selten auch ein unternehmensinternes (manuelles) Pendant.
+So müssen Dokumente einen Freigabeprozess (Release) durchlaufen, sowie nachträgliche Anpassungen in die Informationsbasis eingepflegt werden (Merge).
 Ebenso spielt das Thema Lizenzierung eine zentrale Rolle. Allerdings aus der gegenüberliegenden Perspektive. Während für die Entwicklung von Open Source Komponenten das Urheberrecht maßgeblich ist um anderen Personen die Verwendung, Veränderung und Verteilung erlaubt spielt im klassischen Maschinenbau das Patentrecht eine entscheidende Rolle, welches diese Freiheiten einschränkt.
 Beide Welten verbindet jedoch das gemeinsame Ziel ein fehlerfreies Produkt mit möglichst geringem Aufwand zu erzeugen.
+
+Diese Richtlinie soll helfen einen möglichst einfachen Einstieg in die Entwicklung von Open Source Komponenten zu ermöglichen. Open Source gibt Menschen "per Design" die Möglichkeit zu jedem Zeitpunkt und an jeder Stelle Dinge beliebig anzupassen. Zu Beginn eines Projekts und als Neuling kann diese Freiheit jedoch sehr hinderlich sein.
+
+"Aber jedes Projekt ist anders und benötigt eigene Strukturen."
+
+Ja, das ist richtig. Allerdings kennt man am Anfang einer Entwicklung meist noch nicht die "optimale" Struktur für das eigene Projekt.
+
+Diese Richtlinie hat also das Ziel einen "konsistenten" Startpunkt zu schaffen. Aufbauend mit zunehmender Erfahrung kann und muss u.U. diese Struktur verlassen werden, z.B. was eine geeignete Branching-Struktur oder ein Versionierungsschema angeht.
+
+Ebenso muss diese Richtlinie ständig an die sich ändernden Anforderungen von Open Source Hardware angepasst werden.
 
 
 ## 1. Versionsverwaltung und Versionierung
 
-**Versionsverwaltung**
 
-Verwende ein Versionierungssystem!
-Das Versionierungssystem überwacht wer, wann, was am Repository ändert.
-Das ist neben einer Reihe weiterer Vorteile die Grundlage für eine gültige Lizenzierung. Häufig verlangen freie Lizenzen, wie die `CERN-OHL-2`, dass Veränderungen dargelegt werden müssen.
-Es stellt eine Reihe von Werkzeugen bereit um bspw. konkrete Entwicklungsstände anhand einer Versionsnummer eindeutig zu identifizieren, Änderungen zurückzuverfolgen, verschiedene Entwicklungen parallel ablaufen zu lassen und zusammenzuführen, mit anderen Personen strukturiert zusammenzuarbeiten, ...
+### Versionsverwaltung
+
+Verwende ein Versionsverwaltungssystem (Version Control System - VCS)!
+Es überwacht wer, wann, was am Repository ändert. Da diese Systeme aus dem Bereich der Softwareentwicklung stammen, spricht man auch von Software-Configuration-Management (SCM) Systemen<sup>[1](#1)</sup>.
+Neben einer Reihe weiterer Vorteile bildet es die Grundlage für eine gültige Lizenzierung. Häufig verlangen freie Lizenzen, wie die `CERN-OHL-2`, dass Veränderungen dargelegt werden müssen.
+Es unterstützt bei der Synchronisierung verschiedener Entwicklungsstände, wodurch eine Parallelisierung der Entwicklung einzelner Features und die effiziente Verwaltung mehrerer Varianten ermöglicht wird.
+Konkrete Entwicklungsstände können anhand einer Versionsnummer eindeutig identifiziert, Änderungen zurückverfolgt oder Beiträge zusammengeführt werden, kurz: es sorgt für eine strukturierte Zusammenarbeit mit anderen Personen, weltweit.
 
 Empfehlung: **Git**
 
@@ -33,21 +45,26 @@ Empfehlung: **Git**
     - Fortgeschrittene arbeiten meist direkt mit den Befehlen im Terminal. Alle Werkzeuge/Oberflächen sind miteinander kompatibel.
     - Wähle daher das Werkzeug mit welchem Du am besten zurecht kommst.
     - Empfehlung:
-        - `VSCode` mit `GitGraph` oder `GitLens` Extension
-            - der Editor kann für viele weitere Entwicklungsprozesse konfiguriert und erweitert werden, z. B. zur Erstellung Markdown-basierter Dokumentationen, zur Veränderungsverfolgung (`diff-tool`), siehe [Dokumentation](#3-dokumentation)
+        - `VSCode` mit `GitGraph`<sup>2</sup> oder `GitLens`<sup>3</sup> Extension
+            - der Editor kann für viele weitere Entwicklungsprozesse konfiguriert und erweitert werden, z. B. zur Erstellung Markdown-basierter Dokumentationen, siehe [Dokumentation](#3-dokumentation), zur Veränderungsverfolgung mittels Dateivergleich (`diff-tool`), zur Validierung mittels `Linter` usw.
+            - `VSCode` bildet damit eine gute Ausgangsbasis für eine "Open Source Hardware Entwicklungsumgebung"
         - Link: <https://code.visualstudio.com/Download>
-        - Anmerkung: 
+        - Anmerkung:
             - `VSCodium`:
                 - Telemetriefreie Version auf Basis von `VSCode`
                     - Repository: <https://github.com/VSCodium/vscodium/releases>
-                    - Windows: `VSCodium-x64-1.88.0.24096.msi`<sup>[1](#1)</sup>
+                    - Windows: `VSCodium-x64-<version>.msi`
                     - Linux: nutze das Paket deines Paketmanagers!
-                - Anmerkung: `VSCodium` hat standardmäßig keinen Zugriff auf den `Visual Studio Code Marketplace`, kann aber konfiguriert werden
+                - Anmerkung: `VSCodium` hat lizenzbedingt keinen Zugriff auf den `Visual Studio Code Marketplace`, kann aber konfiguriert werden
 
-<a name="1">1</a>: <https://github.com/VSCodium/vscodium/releases/download/1.88.0.24096/VSCodium-x64-1.88.0.24096.msi>
+Neben Git existieren viele weitere Open Source Versionsverwaltungssysteme, wie Apache Subversion (SVN), Mercurial, Bazaar oder BitKeeper.
 
-\
-**Versionierung**
+<a name="1">1:</a> <https://de.wikipedia.org/wiki/Software-Configuration-Management>
+<a name="2">2:</a> <https://github.com/mhutchie/vscode-git-graph>
+<a name="3">3:</a> <https://github.com/gitkraken/vscode-gitlens>
+
+
+### Versionierung
 
 Es muss zwischen "interner" und "externer" Versionsnummer unterschieden werden. Eine externe Versionsnummer entspricht mehr einer Produktbezeichnung und ist vor allem aus marketingtechnischer Sicht von Bedeutung. Interne und externe Versionierung können daher voneinander abweichen, (siehe Windows NT Versionen 3.1 bis 10).
 Die Versionsnummer ist des Weiteren relevant zur eindeutigen Zuordnung der Entwicklungsdokumente zu einem konkreten Artikel, welcher durch eine Artikelnummer identifiziert wird. Die Versionsnummer kann ein Teil der Artikelnummer sein.
@@ -76,7 +93,8 @@ Abkürzungen sind hilfreich solange ihre Bedeutung im entsprechenden Kontext mö
 Um späteren Aufwand zu minimieren ist es daher wichtig die Dinge so ausdrucksstark wie möglich zu benennen. ("Wozu ist das? Das ist blaues Licht. Und was macht es? Es leuchtet blau.")
 Diese Empfehlung bezieht sich sowohl auf die Benennung von Dateien als auch auf die Benennung von Baugruppen und Unterbaugruppen sowie Einzelteilen in einem CAD-Modell innerhalb einer CAD-Datei (Featurebaum, siehe [Konstruktionsvorgaben für CAD-Systeme]).
 
-**Ordnerstruktur**
+
+### Ordnerstruktur
 
 Im Rahmen des Interfacer Projekts wurde für Open-Source-Hardware-Projekte ein Entwurf für eine Projektordnerstruktur entwickelt ("OSH project directory structure standards").<sup>[3](#3)</sup>
 Der Standard ist aktuell ein erster Entwurf und erhebt keinen Anspruch auf Vollständigkeit. Je nach Projektanforderungen kann es notwendig werden die vorgegebene Struktur sinnvoll zu ergänzen. Kostenkalkulationen können bspw. unter `/res/economic/` oder weitere spezifische Dokumente wie Wartungsanleitungen unter `/doc/maintenance/` gespeichert werden.
@@ -131,19 +149,19 @@ Nachfolgend ist die Hauptstruktur (Auszug) aufgeführt. Der vollständige Standa
 <a name="3">3</a>: <https://gitlab.fabcity.hamburg/software/template-osh-repo-structure-minimal/> \
 <a name="4">4</a>: <https://www.interfacerproject.eu/news/buildworkshops/>
 
-\
 
-- **Namenskonvention**:
-    - `<Funktion>[_<Parameter>][_<Norm>|<Artikel-/Produktbezeichnung>].ext`
-        - **Funktion**:
-            - Eine Datei sollte so kurz aber so bezeichnend wie möglich anhand ihrer Funktion benannt werden (Funktionsaspekt <sup>[5](#5)</sup>)
-        - in `[]` angegebene Bestandteile sind optional ergänzend
-            - **Parameter**: Ist eine Unterscheidung nur anhand der Funktion nicht möglich müssen weitere Indikatoren hinzugezogen werden, z.B. der Ort (Ortsaspekt <sup>[5](#5)</sup>) oder eine bestimmte Ausprägung (Geometrie, Leistung, Anschlüsse, ...)
-            - **Norm**: handelt es sich um ein normiertes Teil ist die Norm zu nennen.
-            - **Artikel-/Produktbezeichnung**: Entspricht das Modell ausschließlich einem konkreten Produkt eines Herstellers ist die eindeutige Bezeichnung alternativ zur Norm zu nennen.
-    - Wörter innerhalb eines Aspekts werden mit `-` voneinander getrennt, Aspekte mit einem `_`
-    - Schreibe alle Wörter klein
-    - Verwende englische Bezeichnungen
+### Namenskonvention
+
+- `<Funktion>[_<Parameter>][_<Norm>|<Artikel-/Produktbezeichnung>].ext`
+    - **Funktion**:
+        - Eine Datei sollte so kurz aber so bezeichnend wie möglich anhand ihrer Funktion benannt werden (Funktionsaspekt <sup>[5](#5)</sup>)
+    - in `[]` angegebene Bestandteile sind optional ergänzend
+        - **Parameter**: Ist eine Unterscheidung nur anhand der Funktion nicht möglich müssen weitere Indikatoren hinzugezogen werden, z.B. der Ort (Ortsaspekt <sup>[5](#5)</sup>) oder eine bestimmte Ausprägung (Geometrie, Leistung, Anschlüsse, ...)
+        - **Norm**: handelt es sich um ein normiertes Teil ist die Norm zu nennen.
+        - **Artikel-/Produktbezeichnung**: Entspricht das Modell ausschließlich einem konkreten Produkt eines Herstellers ist die eindeutige Bezeichnung alternativ zur Norm zu nennen.
+- Wörter innerhalb eines Aspekts werden mit `-` voneinander getrennt, Aspekte mit einem `_`
+- Schreibe alle Wörter klein
+- Verwende englische Bezeichnungen
 
 <a name="5">5</a>: DIN EN 81346-1
 
@@ -182,12 +200,13 @@ Verwende **`Markdown`**!
 Markdown (`*.md`) hat sich in den letzten Jahren ebenfalls als Standard zur einfachen Formatierung von Texten etabliert.
 Mit voranschreitender Entwicklung des Projekts wird eine umfangreichere Dokumentation notwendig.
 Es existieren eine Reihe von Werkzeugen, welche auf Basis von Markdown automatisch ergonomische statische Webseiten generieren und direkt bspw. via Diensten, wie GitHub-Pages zur Verfügung stellen.
-Die Dokumentation findet somit synchron mit den Komponenten im Repository statt und wird über das Versionierungssystem überwacht.
+Die Dokumentation findet somit synchron mit den Komponenten im Repository statt und wird über das Versionsverwaltungssystem überwacht.
 
 
 ## 4. Lizenzierung
 
-**Allgemeines**
+
+### Allgemeines
 
 Alle Source-Codes/-Designs unterliegen dem Urheberrecht der urhebenden Person.
 Im dt. Recht ist das Urheberrecht ein Grundrecht und somit nicht übertragbar (Urheberpersönlichkeitsrecht), ein Lizenzvermerk (vgl. Copyright etc.) ist nicht notwendig.
@@ -212,35 +231,48 @@ Empfehlung: Nutze das `REUSE`-Tool) zur Lizenzverwaltung!
 <a name="6">6</a>: <https://spdx.org/licenses/> \
 <a name="7">7</a>: <https://reuse.software>
 
-\
 
-**Empfohlene Lizenzen**
+### Empfohlene Lizenzen
 
 Sofern die verwendeten externen Komponenten dies zulassen, sollten die eigenen Entwicklungen so "stark" wie möglich in ihrem Copyleft lizenziert werden, d.h.:
 
 Strikte Lizenzierung:
 
-- Software: AGPL-3.0-or-later
-- Hardware und Elektronik: CERN-OHL-S-2.0-or-later
-- Dokumentation: CERN-OHL-S-2.0-or-later
+- Software: ``AGPL-3.0-or-later``
+- Hardware und Elektronik: ``CERN-OHL-S-2.0-or-later``
+- Dokumentation: ``CERN-OHL-S-2.0-or-later``
 
 Die urhebende Person darf zu jedem Zeitpunkt ihre Dateien neu Lizenzieren.
 Sobald mehrere Personen an einer Datei gearbeitet haben wird diese urheberrechtlich zu einem Gemeinschaftswerk, daher ist es wichtig die Zusammenarbeit in einer *Contributors License Agreement* zu regeln. Ansonsten bedarf es der Zustimmung jeder beteiligten Person!
 Eine Lizenzänderung wirkt sich nicht auf die in der Vergangenheit in Umlauf gebrachte Dateien aus sondern immer nur auf die aktuell bereitgestellten. Alte Versionen sind daher schwer wieder "einzufangen" und können beliebig weiterlizenziert werden (daher von strikt zu freizügig).
 
-Nachteil dieses Vorgehens ist, dass sich strikt lizenzierte Designs schwerer mit anderen Komponenten verknüpfen lassen ohne diese in ihrer Lizenzierung zu beeinflussen. Was sich wiederum als Hürde hinsichtlich der Akzeptanz und Verbreitung darstellen könnte. Eine zu freizügige Lizenzierung lässt jedoch Verwertungsstrategien wie eine Dual-Lizenzierung unbedeutend werden. Als Kompromiss wird daher oft eine schwache Lizenzierung gewählt.
+Nachteil dieses Vorgehens ist, dass sich strikt lizenzierte Designs schwerer mit anderen Komponenten verknüpfen lassen ohne diese in ihrer Lizenzierung zu beeinflussen (deshalb auch "reziprok"). Was sich wiederum als Hürde hinsichtlich der Akzeptanz und Verbreitung darstellen könnte. Eine zu freizügige Lizenzierung lässt jedoch Verwertungsstrategien wie eine Dual-Lizenzierung unbedeutend werden. Als Kompromiss wird daher oft eine schwache Lizenzierung gewählt.
 
-Die strikte Variante der CERN-OHL 2 (CERN-OHL-S-2.0) schließt Netzwerkdienste als Verbreitungsform nicht mit ein, weshalb für eine strikte Lizenzierung abweichend für Software die AGPL-3.0 gewählt werden sollte.
+Die strikte Variante der CERN-OHL 2 (``CERN-OHL-S-2.0``) schließt Netzwerkdienste als Verbreitungsform nicht mit ein, weshalb für eine strikte Lizenzierung abweichend für Software die ``AGPL-3.0`` gewählt werden sollte.
 
-Für die Dokumentation wird häufig eine `CC-BY-SA-4.0` angewendet. Diese schreibt jedoch die Veröffentlichung der Quelldateien der Dokumentation nicht vor. Die einzige Lizenz, welche in ihrem Wortlaut unabhängig von Software genutzt werden kann und die Offenlegung der Quelldateien vorschreibt ist aktuell die CERN-OHL-2.0 in der schwachen und strikten Form. 
+Für die Dokumentation wird häufig eine `CC-BY-SA-4.0` angewendet. Diese schreibt jedoch die Veröffentlichung der Quelldateien der Dokumentation nicht vor. Sofern die Dokumentation ein integraler Bestandteil des Projekts und für die Herstellung des Produkts notwendig ist kann ebenfalls die CERN-OHL-2.0 in ihrer schwachen und strikten Form verwendet werden. Ansonsten ist sind hier die ``GPL-3.0`` oder die ``EUPL-1.2`` (European Union Public License) zu bevorzugen. Letztere kennt allerdings die CERN-OHL-2.0 noch nicht in ihrer [Kompatibilitätsliste](https://interoperable-europe.ec.europa.eu/collection/eupl/matrix-eupl-compatible-open-source-licences).
 
 Für die freizügige und schwache Lizenzierung sind daher für alle Aspekte jeweils die Varianten der CERN-OHL 2 anwendbar:
 
 schwach: CERN-OHL-W-2.0-or-later \
 freizügig: CERN-OHL-P-2.0-or-later
 
+Für eine freizügige Lizenzierung einer eigenständigen Dokumentation kann die `CC-BY-4.0` genutzt werden.
 
-## 5. Prinzipien
+Eine "vollständige" Freigabe in die Gemeinfreiheit (Public Domain) ist nur bedingt möglich und am ehesten mittels `CC0` oder der `Unlicense` möglich.
+
+
+## 5. Kompatibilität und Modularisierung
+
+Die Wahl der Lizenz, wie auch die Lizenzen verwendeter Komponenten, wirken sich maßgeblich auf die Kompatibilität und Modularisierung aus.
+
+
+## 6. Haftung und Gewährleistung
+
+"Open Source" findet aktuell Einzug in die Gesetzgebung. Zuletzt wurde mit der Novelle der Produkthaftungsrichtlinie 2024 die verschuldensunabhängige Haftung für Software allgemein als Produkt näher definiert. Im gleichen Zuge ging auch Open Source Software und damit Open Source als Begriff in die neue Richtlinie mit ein.
+
+
+## 7. Prinzipien
 
 In der Software-Entwicklung stößt man immer wieder auf sehr zentrale Grundprinzipien. Auch wenn sich diese auf Software beziehen so lassen sich durch aus Parallelen zur Entwicklung von Konstruktionen ziehen. Hier sollen einige Prinzipien genannt werden, die als Hilfestellung und Grundlage für (Design-)Entscheidungen dienen sollen.
 Nicht selten widersprechen sich Regeln. Spätestens dann muss von ihnen abgewichen werden. Entscheidend ist sich bewusst zu sein, welche Konsequenzen das Verletzen der Regeln haben wird. Sie dienen daher als Ausgangspunkt einer Entwicklung. "Breche niemals die Regeln, außer du weißt du was du tust."
@@ -273,13 +305,12 @@ Ergänzend seien folgende Regeln zu nennen:
     - Eine Konvention/Richtlinie reduziert späteren Dokumentationsaufwand
 
 
-
-
 ## Anhang
+
 
 ### OSH Directory Standard - Unixish Version
 
-```
+```txt
 .
 |-- LICENSES
 | `-- AGPL-3.0-or-later.txt
@@ -406,3 +437,34 @@ Ergänzend seien folgende Regeln zu nennen:
 |-- okh.toml
 `-- recycle.vf_recipe.ttl
 ```
+
+
+<style>
+
+
+    .md-toc-link {display: inline-block !important; padding: 0;}
+    .md-toc ol, .md-toc ul {margin: 0;}
+
+    :root {
+        font-family: "Open Sans", sans-serif;
+    }
+
+    @page {
+        size: A4;
+        margin: 2cm;
+    }
+
+    @media print {
+        h1, h2, h3, h4, h5, h6 {page-break-after: avoid;}
+        p {
+            widows: 3;
+            orphans: 3;
+        }
+        code {
+            white-space: pre-wrap !important;
+        }
+        pre {
+            page-break-inside: auto !important;
+        }
+    }
+</style>
