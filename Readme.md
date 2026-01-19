@@ -29,6 +29,9 @@ Es gibt eine Reihe bereits existierender Standards, die hier zur Anwendung komme
 - Entwurfsmuster und Architekturen für Maschinen und Geräte recherchieren bzw. adaptieren
 - Branching-Modelle, z.B. für Varianten-Management, Merge-Strategien, etc.
 - Gewährleistung und Haftung, Hinweise für die Dokumentation
+- Namenskonvention erweitern
+    - SPS
+    - CAD
 
 
 ## Konstruktionsrichtlinie
@@ -40,3 +43,14 @@ Neben den allgemeinen Vorgaben zur Projektstrukturierung werden in der Konstrukt
 ## Lizenz
 
 Diese Richtlinie wird selbst unter der ``GPL-3.0-or-later`` lizenziert. Da sie nicht direkter Bestandteil einer Dokumentation eines OSH-Projekts ist, sondern ein eigenständiges Projekt darstellt ist die Anwendung der ``CERN-OHL-2.0`` hier u.U. irreführend. Die `GPL` wurde in der Vergangenheit auch für Texte angewendet.
+
+
+## Finanzierung
+
+Dieser OSH-Guide ist im Rahmen des Open Source Hardware Innovation Platform Projekts (OSHOP) entstanden und wird vom Bundesministerium für Forschung, Technologie und Raumfahrt als Teil der T!Raum-Initiative gefördert.
+
+<img height="100" alt="BMFTR Logo" src="https://github.com/user-attachments/assets/198ef196-b143-4488-965f-feeb8622b1e4" />
+
+<img height="100" alt="BMFTR T!Raum Logo" src="https://github.com/user-attachments/assets/3f3872d0-7a25-43fd-8b77-f729b3581df1" />
+
+<img height="100" alt="BMFTR T!Raum Logo" src="https://github.com/user-attachments/assets/16236337-ddff-425b-9950-e9d979d147c3" />

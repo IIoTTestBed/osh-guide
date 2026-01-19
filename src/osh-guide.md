@@ -27,8 +27,8 @@ Ebenso muss diese Richtlinie ständig an die sich ändernden Anforderungen von O
 
 ### Versionsverwaltung
 
-Verwende ein Versionsverwaltungssystem (Version Control System - VCS)!
-Es überwacht wer, wann, was am Repository ändert. Da diese Systeme aus dem Bereich der Softwareentwicklung stammen, spricht man auch von Software-Configuration-Management (SCM) Systemen<sup>[1](#1)</sup>.
+Verwende ein Versionsverwaltungssystem (Version Control System - VCS)[^1]!
+Es überwacht wer, wann, was am Repository ändert.
 Neben einer Reihe weiterer Vorteile bildet es die Grundlage für eine gültige Lizenzierung. Häufig verlangen freie Lizenzen, wie die `CERN-OHL-2`, dass Veränderungen dargelegt werden müssen.
 Es unterstützt bei der Synchronisierung verschiedener Entwicklungsstände, wodurch eine Parallelisierung der Entwicklung einzelner Features und die effiziente Verwaltung mehrerer Varianten ermöglicht wird.
 Konkrete Entwicklungsstände können anhand einer Versionsnummer eindeutig identifiziert, Änderungen zurückverfolgt oder Beiträge zusammengeführt werden, kurz: es sorgt für eine strukturierte Zusammenarbeit mit anderen Personen, weltweit.
@@ -45,7 +45,7 @@ Empfehlung: **Git**
     - Fortgeschrittene arbeiten meist direkt mit den Befehlen im Terminal. Alle Werkzeuge/Oberflächen sind miteinander kompatibel.
     - Wähle daher das Werkzeug mit welchem Du am besten zurecht kommst.
     - Empfehlung:
-        - `VSCode` mit `GitGraph`<sup>2</sup> oder `GitLens`<sup>3</sup> Extension
+        - `VSCode` mit `GitGraph`[^2] oder `GitLens`[^3] Extension
             - der Editor kann für viele weitere Entwicklungsprozesse konfiguriert und erweitert werden, z. B. zur Erstellung Markdown-basierter Dokumentationen, siehe [Dokumentation](#3-dokumentation), zur Veränderungsverfolgung mittels Dateivergleich (`diff-tool`), zur Validierung mittels `Linter` usw.
             - `VSCode` bildet damit eine gute Ausgangsbasis für eine "Open Source Hardware Entwicklungsumgebung"
         - Link: <https://code.visualstudio.com/Download>
@@ -59,9 +59,9 @@ Empfehlung: **Git**
 
 Neben Git existieren viele weitere Open Source Versionsverwaltungssysteme, wie Apache Subversion (SVN), Mercurial, Bazaar oder BitKeeper.
 
-<a name="1">1:</a> <https://de.wikipedia.org/wiki/Software-Configuration-Management>
-<a name="2">2:</a> <https://github.com/mhutchie/vscode-git-graph>
-<a name="3">3:</a> <https://github.com/gitkraken/vscode-gitlens>
+[^1]: <https://de.wikipedia.org/wiki/Versionsverwaltung>
+[^2]: <https://github.com/mhutchie/vscode-git-graph>
+[^3]: <https://github.com/gitkraken/vscode-gitlens>
 
 
 ### Versionierung
@@ -71,7 +71,7 @@ Die Versionsnummer ist des Weiteren relevant zur eindeutigen Zuordnung der Entwi
 Für die Entwicklung ist die interne Versionsnummer maßgeblich.
 Grundsätzlich ist man frei darin ob man nach einem bestimmten Schema Entwicklungsfortschritte markiert und wie dieses Schema aufgebaut ist.
 Versionsnummern sind häufig mehrteilig. Jede Teilnummer kann hierbei eine spezielle Bedeutung erhalten.
-Immer häufiger orientiert man sich am Konzept der **Semantischen Versionierung** (`Semantic Versioning 2.0.0`)<sup>[2](#2)</sup> als Konvention für aussagekräftige Versionsnummern
+Das Konzept der **Semantischen Versionierung** (`Semantic Versioning 2.0.0`)[^4] ist eine Konvention für aussagekräftige Versionsnummern.
 Die Versionsnummer nimmt hierbei folgende Struktur ein: **`MAJOR.MINOR.PATCH`**.
 
 Eine Erhöhung an den einzelnen Stellen bedeutet:
@@ -81,7 +81,7 @@ Eine Erhöhung an den einzelnen Stellen bedeutet:
 - `MINOR`-Version, wenn neue Funktionen mit Abwärtskompatibilität hinzugefügt werden
 - `PATCH`-Version, wenn abwärtskompatible Fehlerbehebungen oder andere kleinere Änderungen vorgenommen werden
 
-<a name="2">2</a>: <https://semver.org/lang/de/>
+[^4]: <https://semver.org/lang/de/>
 
 
 ## 2. Ordnerstruktur und Benennung
@@ -96,9 +96,9 @@ Diese Empfehlung bezieht sich sowohl auf die Benennung von Dateien als auch auf 
 
 ### Ordnerstruktur
 
-Im Rahmen des Interfacer Projekts wurde für Open-Source-Hardware-Projekte ein Entwurf für eine Projektordnerstruktur entwickelt ("OSH project directory structure standards").<sup>[3](#3)</sup>
+Im Rahmen des Interfacer Projekts wurde für Open-Source-Hardware-Projekte ein Entwurf für eine Projektordnerstruktur entwickelt ("OSH project directory structure standards").[^5]
 Der Standard ist aktuell ein erster Entwurf und erhebt keinen Anspruch auf Vollständigkeit. Je nach Projektanforderungen kann es notwendig werden die vorgegebene Struktur sinnvoll zu ergänzen. Kostenkalkulationen können bspw. unter `/res/economic/` oder weitere spezifische Dokumente wie Wartungsanleitungen unter `/doc/maintenance/` gespeichert werden.
-Es wurden bereits eine Reihe Projekte nach diesem Standard strukturiert.<sup>[4](#4)</sup>
+Es wurden bereits eine Reihe Projekte nach diesem Standard strukturiert.[^6]
 Einige Bezeichnungen und Abkürzungen erscheinen anfänglich ungewohnt, insb. in der Konstruktion, wie "mech" oder "manuf". Bereits wenige ähnlich strukturierte Projekte zeigen ein erleichtertes Zurechtfinden.
 Auf Basis einer vereinheitlichten Struktur lassen sich ferner einfacher Automatisierungen ("Toolchains") entwickeln.
 Nachfolgend ist die Hauptstruktur (Auszug) aufgeführt. Der vollständige Standard ist im [Anhang](#osh-directory-standard---unixish-version) zu finden.
@@ -126,7 +126,8 @@ Nachfolgend ist die Hauptstruktur (Auszug) aufgeführt. Der vollständige Standa
 │ ├── okh.toml                      # automatisch generierte Meta─Daten Datei, OKH─Manifest/Spezifikation
 │ └── ...
 ├── mod/                            # Git─Submodule, hier werden Abhängigkeiten zu anderen Komponenten verwaltet
-├─┬ res/                            # projektbegleitende Dokumente
+├─┬ res/                            # projektbegleitende Dokumente, Unterordner können beliebig erweitert werden
+| ├── assets/                       # Ablageort für große Dateien
 │ ├── concept/                      # Konzeptbeschreibung, lose Ideensammlung, Roadmap
 │ ├── economic/                     # Kostenkalkulationen, Vergleichsrechnungen
 │ └── var/                          # `various`-Verzeichnis für alle Dokumente welche keiner anderen Kategorie zugeordnet werden können
@@ -146,24 +147,33 @@ Nachfolgend ist die Hauptstruktur (Auszug) aufgeführt. Der vollständige Standa
 └── README.md                       # Grundlegende Beschreibung des Projekts sowie wichtige Informationen zur Verwendung, Struktur, Mitarbeit, etc.
 ```
 
-<a name="3">3</a>: <https://gitlab.fabcity.hamburg/software/template-osh-repo-structure-minimal/> \
-<a name="4">4</a>: <https://www.interfacerproject.eu/news/buildworkshops/>
+[^5]: <https://gitlab.com/OSEGermany/osh-dir-std>
+[^6]: <https://www.interfacerproject.eu/news/buildworkshops/>
 
 
 ### Namenskonvention
 
 - `<Funktion>[_<Parameter>][_<Norm>|<Artikel-/Produktbezeichnung>].ext`
     - **Funktion**:
-        - Eine Datei sollte so kurz aber so bezeichnend wie möglich anhand ihrer Funktion benannt werden (Funktionsaspekt <sup>[5](#5)</sup>)
+        - Eine Datei sollte so kurz aber so bezeichnend wie möglich anhand ihrer Funktion benannt werden (Funktionsaspekt[^7])
+        - *Abkürzungen*: um Dateinamen kürzer zu halten bietet es sich an in der übergeordneten Ordnerbezeichnung eine Abkürzung anzugeben: `tool-changer_tc`
     - in `[]` angegebene Bestandteile sind optional ergänzend
-        - **Parameter**: Ist eine Unterscheidung nur anhand der Funktion nicht möglich müssen weitere Indikatoren hinzugezogen werden, z.B. der Ort (Ortsaspekt <sup>[5](#5)</sup>) oder eine bestimmte Ausprägung (Geometrie, Leistung, Anschlüsse, ...)
+        - **Parameter**: Ist eine Unterscheidung nur anhand der Funktion nicht möglich müssen weitere Indikatoren hinzugezogen werden, z.B. der Ort (Ortsaspekt[^7]) oder eine bestimmte Ausprägung (Geometrie, Leistung, Anschlüsse, ...)
         - **Norm**: handelt es sich um ein normiertes Teil ist die Norm zu nennen.
         - **Artikel-/Produktbezeichnung**: Entspricht das Modell ausschließlich einem konkreten Produkt eines Herstellers ist die eindeutige Bezeichnung alternativ zur Norm zu nennen.
 - Wörter innerhalb eines Aspekts werden mit `-` voneinander getrennt, Aspekte mit einem `_`
 - Schreibe alle Wörter klein
 - Verwende englische Bezeichnungen
 
-<a name="5">5</a>: DIN EN 81346-1
+Beispiel:
+
+- tool-changer-system_tcs/
+    └ actuation-mechanism/
+        └ circlip-for-shafts_din-471-6x0p7.fcsdt
+- tool-storage-system_tss/
+    └ tss.prt
+
+[^7]: DIN EN 81346-1
 
 
 ## 3. Dokumentation
@@ -195,12 +205,14 @@ Grundlegende Struktur:
 Verwende **`Markdown`**!
 
 - Link: <https://www.markdownguide.org/basic-syntax/>
-- Extension für VSCode: `Markdown Preview Enhanced`
+- Extension für VSCode: `Markdown Preview Enhanced`[^8]
 
 Markdown (`*.md`) hat sich in den letzten Jahren ebenfalls als Standard zur einfachen Formatierung von Texten etabliert.
 Mit voranschreitender Entwicklung des Projekts wird eine umfangreichere Dokumentation notwendig.
 Es existieren eine Reihe von Werkzeugen, welche auf Basis von Markdown automatisch ergonomische statische Webseiten generieren und direkt bspw. via Diensten, wie GitHub-Pages zur Verfügung stellen.
 Die Dokumentation findet somit synchron mit den Komponenten im Repository statt und wird über das Versionsverwaltungssystem überwacht.
+
+[^8]: <https://shd101wyy.github.io/markdown-preview-enhanced>
 
 
 ## 4. Lizenzierung
@@ -222,14 +234,14 @@ OS-Lizenzen werden grundlegend nach ihrer Copyleft-Wirkung unterschieden:
 
 Dokumentiere und prüfe daher akribisch die Lizenzen der verwendeten Source-Codes und -Designs und deren Kompatibilität zueinander!
 
-Der "System Package Data Exchange"-Standard (ISO IEC 5692:2021)<sup>[6](#6)</sup> definiert eindeutige Bezeichner für die meisten bekannten Open Source Lizenzen und gibt deren Status hinsichtlich ihrer Anerkennung von der Free Software Foundation oder der Open Source Initiative an. Für eine standardkonforme Lizenzierung ist die Verwendung des `REUSE`-Tools<sup>[7](#7)</sup> der Free Software Foundation Europe zu empfehlen.
+Der "System Package Data Exchange"-Standard (ISO IEC 5692:2021)[^9] definiert eindeutige Bezeichner für die meisten bekannten Open Source Lizenzen und gibt deren Status hinsichtlich ihrer Anerkennung von der Free Software Foundation oder der Open Source Initiative an. Für eine standardkonforme Lizenzierung ist die Verwendung des `REUSE`-Tools[^10] der Free Software Foundation Europe zu empfehlen.
 
 Empfehlung: Nutze das `REUSE`-Tool) zur Lizenzverwaltung!
 
 - Link: <https://github.com/fsfe/reuse-tool>
 
-<a name="6">6</a>: <https://spdx.org/licenses/> \
-<a name="7">7</a>: <https://reuse.software>
+[^9]: <https://spdx.org/licenses/>
+[^10]: <https://reuse.software>
 
 
 ### Empfohlene Lizenzen
@@ -269,18 +281,21 @@ Die Wahl der Lizenz, wie auch die Lizenzen verwendeter Komponenten, wirken sich 
 
 ## 6. Haftung und Gewährleistung
 
-"Open Source" findet aktuell Einzug in die Gesetzgebung. Zuletzt wurde mit der Novelle der Produkthaftungsrichtlinie 2024 die verschuldensunabhängige Haftung für Software allgemein als Produkt näher definiert. Im gleichen Zuge ging auch Open Source Software und damit Open Source als Begriff in die neue Richtlinie mit ein.
+"Open Source" findet aktuell Einzug in die Gesetzgebung. Zuletzt wurde mit der Novelle der Produkthaftungsrichtlinie[^11] 2024 die verschuldensunabhängige Haftung für Software allgemein als Produkt näher definiert. Im gleichen Zuge ging auch Open Source Software und damit Open Source als Begriff in die neue Richtlinie mit ein.
+
+[^11]: <https://eur-lex.europa.eu/eli/dir/2024/2853/oj>
 
 
 ## 7. Prinzipien
 
 In der Software-Entwicklung stößt man immer wieder auf sehr zentrale Grundprinzipien. Auch wenn sich diese auf Software beziehen so lassen sich durch aus Parallelen zur Entwicklung von Konstruktionen ziehen. Hier sollen einige Prinzipien genannt werden, die als Hilfestellung und Grundlage für (Design-)Entscheidungen dienen sollen.
-Nicht selten widersprechen sich Regeln. Spätestens dann muss von ihnen abgewichen werden. Entscheidend ist sich bewusst zu sein, welche Konsequenzen das Verletzen der Regeln haben wird. Sie dienen daher als Ausgangspunkt einer Entwicklung. "Breche niemals die Regeln, außer du weißt du was du tust."
+Nicht selten widersprechen sich Regeln. Spätestens dann muss von ihnen abgewichen werden. Entscheidend ist sich bewusst zu sein, welche Konsequenzen das Verletzen der Regeln haben wird. Sie dienen daher als Ausgangspunkt einer Entwicklung. "Breche niemals die Regeln, außer du weißt was du tust."
 
-Bekannt als Unix-Philosophie fasst Raymond<sup>[8](#8)</sup> diese in 17 Regeln zusammen:
+Bekannt als Unix-Philosophie fasst Raymond[^12] diese in 17 Regeln zusammen:
 
 1. Regel der Modularität: Schreibe einfache Bestandteile, die durch saubere Schnittstellen verbunden werden.
 2. Regel der Klarheit: Klarheit ist besser als Gerissenheit.
+    - Entwerfe Komponenten so, dass ihre Funktion leicht erkennbar ist. Dies reduziert Dokumentationsaufwand.
 3. Regel des Zusammenbaus: Entwirf Programme so, dass sie mit anderen Programmen verknüpft werden können.
 4. Regel der Trennung: Trenne den Grundgedanken von der Umsetzung, trenne die Schnittstellen von der Verarbeitungslogik.
 5. Regel der Einfachheit: Entwirf mit dem Ziel der Einfachheit; füge Komplexität nur hinzu, wenn es unbedingt sein muss. ("Keep it simple and stupid", "Ockhams Rassiermesser")
@@ -297,12 +312,14 @@ Bekannt als Unix-Philosophie fasst Raymond<sup>[8](#8)</sup> diese in 17 Regeln 
 16. Regel der Vielseitigkeit: Misstraue allen Ansprüchen auf „den einzig wahren Weg“.
 17. Regel der Erweiterbarkeit: Entwirf für die Zukunft, denn sie wird schneller kommen als du denkst.
 
-<a name="8">8</a>: Deutsche Übersetzung von: <https://cdn.nakamotoinstitute.org/docs/taoup.pdf>, entnommen aus: <https://de.wikipedia.org/wiki/Unix-Philosophie>
+[^12]: Deutsche Übersetzung von: <https://cdn.nakamotoinstitute.org/docs/taoup.pdf>, entnommen aus: <https://de.wikipedia.org/wiki/Unix-Philosophie>
 
 Ergänzend seien folgende Regeln zu nennen:
 
 - “Konvention vor Konfiguration” (siehe diese Richtlinie)
     - Eine Konvention/Richtlinie reduziert späteren Dokumentationsaufwand
+- Spezialisierung: Anstatt so viele Funktionen wie möglich zu integrieren ist es besser diese in eigene Komponenten aufzuteilen. ("Jede Komponente/Modul hat eine einzige Aufgabe und die erfüllt es auf die Beste Art und Weise!")
+    - Dies führt zu einfacheren Schnittstellen und besserer Austauschbarkeit
 
 
 ## Anhang
