@@ -1,6 +1,23 @@
 # OSH-Guide
 
-[TOC]
+- [OSH-Guide](#osh-guide)
+    - [Vorbemerkungen](#vorbemerkungen)
+    - [1. Versionsverwaltung und Versionierung](#1-versionsverwaltung-und-versionierung)
+        - [Versionsverwaltung](#versionsverwaltung)
+        - [Versionierung](#versionierung)
+    - [2. Ordnerstruktur und Benennung](#2-ordnerstruktur-und-benennung)
+        - [Ordnerstruktur](#ordnerstruktur)
+        - [Namenskonvention](#namenskonvention)
+    - [3. Dokumentation](#3-dokumentation)
+    - [4. Lizenzierung](#4-lizenzierung)
+        - [Allgemeines](#allgemeines)
+        - [Empfohlene Lizenzen](#empfohlene-lizenzen)
+    - [5. Kompatibilität und Modularisierung](#5-kompatibilität-und-modularisierung)
+    - [6. Haftung und Gewährleistung](#6-haftung-und-gewährleistung)
+    - [7. Prinzipien](#7-prinzipien)
+    - [Anhang](#anhang)
+        - [OSH Directory Standard - Unixish Version](#osh-directory-standard---unixish-version)
+
 
 
 ## Vorbemerkungen
@@ -55,7 +72,7 @@ Empfehlung: **Git**
                     - Repository: <https://github.com/VSCodium/vscodium/releases>
                     - Windows: `VSCodium-x64-<version>.msi`
                     - Linux: nutze das Paket deines Paketmanagers!
-                - Anmerkung: `VSCodium` hat lizenzbedingt keinen Zugriff auf den `Visual Studio Code Marketplace`, kann aber konfiguriert werden
+                - `VSCodium` hat lizenzbedingt keinen Zugriff auf den `Visual Studio Code Marketplace`, kann aber konfiguriert werden (Verstoß gegen die Nutzungsbedingungen)
 
 Neben Git existieren viele weitere Open Source Versionsverwaltungssysteme, wie Apache Subversion (SVN), Mercurial, Bazaar oder BitKeeper.
 
@@ -167,11 +184,13 @@ Nachfolgend ist die Hauptstruktur (Auszug) aufgeführt. Der vollständige Standa
 
 Beispiel:
 
-- tool-changer-system_tcs/
+```txt
+../tool-changer-system_tcs/
     └ actuation-mechanism/
         └ circlip-for-shafts_din-471-6x0p7.fcsdt
-- tool-storage-system_tss/
+../tool-storage-system_tss/
     └ tss.prt
+```
 
 [^7]: DIN EN 81346-1
 
@@ -205,14 +224,17 @@ Grundlegende Struktur:
 Verwende **`Markdown`**!
 
 - Link: <https://www.markdownguide.org/basic-syntax/>
-- Extension für VSCode: `Markdown Preview Enhanced`[^8]
+- Extensions für VSCode:
+    - `Markdown All in One`[^8]
+    - `markdownlint`[^9]
 
 Markdown (`*.md`) hat sich in den letzten Jahren ebenfalls als Standard zur einfachen Formatierung von Texten etabliert.
 Mit voranschreitender Entwicklung des Projekts wird eine umfangreichere Dokumentation notwendig.
 Es existieren eine Reihe von Werkzeugen, welche auf Basis von Markdown automatisch ergonomische statische Webseiten generieren und direkt bspw. via Diensten, wie GitHub-Pages zur Verfügung stellen.
 Die Dokumentation findet somit synchron mit den Komponenten im Repository statt und wird über das Versionsverwaltungssystem überwacht.
 
-[^8]: <https://shd101wyy.github.io/markdown-preview-enhanced>
+[^8]: <https://github.com/yzhang-gh/vscode-markdown>
+[^9]: <https://github.com/DavidAnson/vscode-markdownlint>
 
 
 ## 4. Lizenzierung
@@ -234,14 +256,14 @@ OS-Lizenzen werden grundlegend nach ihrer Copyleft-Wirkung unterschieden:
 
 Dokumentiere und prüfe daher akribisch die Lizenzen der verwendeten Source-Codes und -Designs und deren Kompatibilität zueinander!
 
-Der "System Package Data Exchange"-Standard (ISO IEC 5692:2021)[^9] definiert eindeutige Bezeichner für die meisten bekannten Open Source Lizenzen und gibt deren Status hinsichtlich ihrer Anerkennung von der Free Software Foundation oder der Open Source Initiative an. Für eine standardkonforme Lizenzierung ist die Verwendung des `REUSE`-Tools[^10] der Free Software Foundation Europe zu empfehlen.
+Der "System Package Data Exchange"-Standard (ISO IEC 5692:2021)[^10] definiert eindeutige Bezeichner für die meisten bekannten Open Source Lizenzen und gibt deren Status hinsichtlich ihrer Anerkennung von der Free Software Foundation oder der Open Source Initiative an. Für eine standardkonforme Lizenzierung ist die Verwendung des `REUSE`-Tools[^11] der Free Software Foundation Europe zu empfehlen.
 
-Empfehlung: Nutze das `REUSE`-Tool) zur Lizenzverwaltung!
+Empfehlung: Nutze das `REUSE`-Tool zur Lizenzverwaltung!
 
 - Link: <https://github.com/fsfe/reuse-tool>
 
-[^9]: <https://spdx.org/licenses/>
-[^10]: <https://reuse.software>
+[^10]: <https://spdx.org/licenses/>
+[^11]: <https://reuse.software>
 
 
 ### Empfohlene Lizenzen
@@ -281,9 +303,9 @@ Die Wahl der Lizenz, wie auch die Lizenzen verwendeter Komponenten, wirken sich 
 
 ## 6. Haftung und Gewährleistung
 
-"Open Source" findet aktuell Einzug in die Gesetzgebung. Zuletzt wurde mit der Novelle der Produkthaftungsrichtlinie[^11] 2024 die verschuldensunabhängige Haftung für Software allgemein als Produkt näher definiert. Im gleichen Zuge ging auch Open Source Software und damit Open Source als Begriff in die neue Richtlinie mit ein.
+"Open Source" findet aktuell Einzug in die Gesetzgebung. Zuletzt wurde mit der Novelle der Produkthaftungsrichtlinie[^12] 2024 die verschuldensunabhängige Haftung für Software allgemein als Produkt näher definiert. Im gleichen Zuge ging auch Open Source Software und damit Open Source als Begriff in die neue Richtlinie mit ein.
 
-[^11]: <https://eur-lex.europa.eu/eli/dir/2024/2853/oj>
+[^12]: <https://eur-lex.europa.eu/eli/dir/2024/2853/oj>
 
 
 ## 7. Prinzipien
@@ -291,7 +313,7 @@ Die Wahl der Lizenz, wie auch die Lizenzen verwendeter Komponenten, wirken sich 
 In der Software-Entwicklung stößt man immer wieder auf sehr zentrale Grundprinzipien. Auch wenn sich diese auf Software beziehen so lassen sich durch aus Parallelen zur Entwicklung von Konstruktionen ziehen. Hier sollen einige Prinzipien genannt werden, die als Hilfestellung und Grundlage für (Design-)Entscheidungen dienen sollen.
 Nicht selten widersprechen sich Regeln. Spätestens dann muss von ihnen abgewichen werden. Entscheidend ist sich bewusst zu sein, welche Konsequenzen das Verletzen der Regeln haben wird. Sie dienen daher als Ausgangspunkt einer Entwicklung. "Breche niemals die Regeln, außer du weißt was du tust."
 
-Bekannt als Unix-Philosophie fasst Raymond[^12] diese in 17 Regeln zusammen:
+Bekannt als Unix-Philosophie fasst Raymond[^13] diese in 17 Regeln zusammen:
 
 1. Regel der Modularität: Schreibe einfache Bestandteile, die durch saubere Schnittstellen verbunden werden.
 2. Regel der Klarheit: Klarheit ist besser als Gerissenheit.
@@ -312,7 +334,7 @@ Bekannt als Unix-Philosophie fasst Raymond[^12] diese in 17 Regeln zusammen:
 16. Regel der Vielseitigkeit: Misstraue allen Ansprüchen auf „den einzig wahren Weg“.
 17. Regel der Erweiterbarkeit: Entwirf für die Zukunft, denn sie wird schneller kommen als du denkst.
 
-[^12]: Deutsche Übersetzung von: <https://cdn.nakamotoinstitute.org/docs/taoup.pdf>, entnommen aus: <https://de.wikipedia.org/wiki/Unix-Philosophie>
+[^13]: Deutsche Übersetzung von: <https://cdn.nakamotoinstitute.org/docs/taoup.pdf>, entnommen aus: <https://de.wikipedia.org/wiki/Unix-Philosophie>
 
 Ergänzend seien folgende Regeln zu nennen:
 
@@ -454,34 +476,3 @@ Ergänzend seien folgende Regeln zu nennen:
 |-- okh.toml
 `-- recycle.vf_recipe.ttl
 ```
-
-
-<style>
-
-
-    .md-toc-link {display: inline-block !important; padding: 0;}
-    .md-toc ol, .md-toc ul {margin: 0;}
-
-    :root {
-        font-family: "Open Sans", sans-serif;
-    }
-
-    @page {
-        size: A4;
-        margin: 2cm;
-    }
-
-    @media print {
-        h1, h2, h3, h4, h5, h6 {page-break-after: avoid;}
-        p {
-            widows: 3;
-            orphans: 3;
-        }
-        code {
-            white-space: pre-wrap !important;
-        }
-        pre {
-            page-break-inside: auto !important;
-        }
-    }
-</style>
