@@ -1,0 +1,42 @@
+/* .oshop-network .md-header {
+    display: none;
+} */
+
+.md-header__inner > :not(.md-header__button[for="__drawer"]) {
+    display: none;
+}
+
+.md-header__button {
+    /* background-color: var(--md-default-bg-color); */
+    border-radius: 50%;
+    /* box-shadow: var(--md-shadow-z2); */
+}
+
+.md-header__button:hover {
+    /* background-color: var(--md-accent-fg-color); */
+    /* color: var(--md-accent-bg-color); */
+    opacity: 1;
+  }
+
+/* .md-header {
+    background: none;
+    box-shadow: none;
+    backdrop-filter: none;
+} */
+
+
+.oshop-network {
+    background-color: #fafafa;
+}
+
+@media screen and (max-width: 76.2344em) {
+    .md-sidebar--primary {
+        top: 0.4rem !important;
+    }
+}
+
+@media screen and (max-width: 59.9844em) {
+    .md-sidebar--secondary {
+        top: auto !important;
+    }
+}
