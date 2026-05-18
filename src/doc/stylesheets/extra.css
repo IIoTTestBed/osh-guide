@@ -1,0 +1,27 @@
+.oshop-network .md-header__inner > :not(.md-header__button[for="__drawer"]) {
+    display: none;
+}
+
+.oshop-network .md-header__button {
+    border-radius: 50%;
+}
+
+.oshop-network .md-header__button:hover {
+    opacity: 1;
+  }
+
+.oshop-network {
+    background-color: #fafafa;
+}
+
+@media screen and (max-width: 76.2344em) {
+    .oshop-network .md-sidebar--primary {
+        top: 0.4rem !important;
+    }
+}
+
+@media screen and (max-width: 59.9844em) {
+    .oshop-network .md-sidebar--secondary {
+        top: auto !important;
+    }
+}
