@@ -12,12 +12,16 @@
     - [4. Lizenzierung](#4-lizenzierung)
         - [Allgemeines](#allgemeines)
         - [Empfohlene Lizenzen](#empfohlene-lizenzen)
+            - [Strikte Lizenzierung](#strikte-lizenzierung)
+            - [Schwache und freizügige Lizenzierung](#schwache-und-freizügige-lizenzierung)
+            - [Gemeinfreiheit (Public Domain)](#gemeinfreiheit-public-domain)
+            - [Contributors License Agreement (Gemeinschaftswerke)](#contributors-license-agreement-gemeinschaftswerke)
+            - [Erläuterungen](#erläuterungen)
     - [5. Kompatibilität und Modularisierung](#5-kompatibilität-und-modularisierung)
     - [6. Haftung und Gewährleistung](#6-haftung-und-gewährleistung)
     - [7. Prinzipien](#7-prinzipien)
     - [Anhang](#anhang)
         - [OSH Directory Standard - Unixish Version](#osh-directory-standard---unixish-version)
-
 
 
 ## Vorbemerkungen
@@ -28,15 +32,15 @@ So müssen Dokumente einen Freigabeprozess (Release) durchlaufen, sowie nachträ
 Ebenso spielt das Thema Lizenzierung eine zentrale Rolle. Allerdings aus der gegenüberliegenden Perspektive. Während für die Entwicklung von Open Source Komponenten das Urheberrecht maßgeblich ist um anderen Personen die Verwendung, Veränderung und Verteilung erlaubt spielt im klassischen Maschinenbau das Patentrecht eine entscheidende Rolle, welches diese Freiheiten einschränkt.
 Beide Welten verbindet jedoch das gemeinsame Ziel ein fehlerfreies Produkt mit möglichst geringem Aufwand zu erzeugen.
 
-Diese Richtlinie soll helfen einen möglichst einfachen Einstieg in die Entwicklung von Open Source Komponenten zu ermöglichen. Open Source gibt Menschen "per Design" die Möglichkeit zu jedem Zeitpunkt und an jeder Stelle Dinge beliebig anzupassen. Zu Beginn eines Projekts und als Neuling kann diese Freiheit jedoch sehr hinderlich sein.
+Dieser Leitfaden soll helfen einen möglichst einfachen Einstieg in die Entwicklung von Open Source Komponenten zu ermöglichen. Open Source gibt Menschen "per Design" die Möglichkeit zu jedem Zeitpunkt und an jeder Stelle Dinge beliebig anzupassen. Zu Beginn eines Projekts und als Neuling kann diese Freiheit jedoch sehr hinderlich sein.
 
 "Aber jedes Projekt ist anders und benötigt eigene Strukturen."
 
 Ja, das ist richtig. Allerdings kennt man am Anfang einer Entwicklung meist noch nicht die "optimale" Struktur für das eigene Projekt.
 
-Diese Richtlinie hat also das Ziel einen "konsistenten" Startpunkt zu schaffen. Aufbauend mit zunehmender Erfahrung kann und muss u.U. diese Struktur verlassen werden, z.B. was eine geeignete Branching-Struktur oder ein Versionierungsschema angeht.
+Dieser Leitfaden hat also das Ziel einen "konsistenten" Startpunkt zu schaffen. Aufbauend mit zunehmender Erfahrung kann und muss u.U. diese Struktur verlassen werden, z.B. was eine geeignete Branching-Struktur oder ein Versionierungsschema angeht.
 
-Ebenso muss diese Richtlinie ständig an die sich ändernden Anforderungen von Open Source Hardware angepasst werden.
+Ebenso muss dieser Leitfaden ständig an die sich ändernden Anforderungen von Open Source Hardware angepasst werden.
 
 
 ## 1. Versionsverwaltung und Versionierung
@@ -216,7 +220,7 @@ Grundlegende Struktur:
 - Bauanleitung
 - Arbeitsweise
     - Informationen für Beitragende
-        - Developer-Guidelines, Namenskonventionen (wie diese Richtlinie), Branchingstruktur, etc.
+        - Developer-Guidelines, Namenskonventionen (wie dieser Leitfaden), Branchingstruktur, etc.
     - Contributors License Agreement
         - Regeln wie mit Beiträgen Dritter rechtlich umgegangen werden soll
 - Lizenzierung
@@ -239,12 +243,11 @@ Die Dokumentation findet somit synchron mit den Komponenten im Repository statt 
 
 ## 4. Lizenzierung
 
-
 ### Allgemeines
 
-Alle Source-Codes/-Designs unterliegen dem Urheberrecht der urhebenden Person.
-Im dt. Recht ist das Urheberrecht ein Grundrecht und somit nicht übertragbar (Urheberpersönlichkeitsrecht), ein Lizenzvermerk (vgl. Copyright etc.) ist nicht notwendig.
-Nutzenden Personen werden daher Nutzungsrechte mittels einer Lizenz eingeräumt.
+Alle Source-Codes/-Designs unterliegen dem **Urheberrecht** der urhebenden Person.
+Im deutschen Recht ist das Urheberrecht ein Grundrecht und somit nicht übertragbar (Urheberpersönlichkeitsrecht) - ein Lizenzvermerk (vgl. Copyright etc.) ist nicht notwendig.
+Nutzenden Personen werden daher Nutzungsrechte mittels einer **Lizenz** eingeräumt.
 Open Source Lizenzen sind "Standard-Nutzungslizenzen" im Urheberrecht und regeln die Verwendung, Veränderung und Verteilung (Veröffentlichung, Verwertung) der bereitgestellten Dateien.
 Keine Angabe bedeutet "Alle Rechte vorbehalten": d.h. jegliche Nutzung ohne Erlaubnis der urhebenden Person stellt eine Urheberrechtsverletzung dar!
 
@@ -256,7 +259,7 @@ OS-Lizenzen werden grundlegend nach ihrer Copyleft-Wirkung unterschieden:
 
 Dokumentiere und prüfe daher akribisch die Lizenzen der verwendeten Source-Codes und -Designs und deren Kompatibilität zueinander!
 
-Der "System Package Data Exchange"-Standard (ISO IEC 5692:2021)[^10] definiert eindeutige Bezeichner für die meisten bekannten Open Source Lizenzen und gibt deren Status hinsichtlich ihrer Anerkennung von der Free Software Foundation oder der Open Source Initiative an. Für eine standardkonforme Lizenzierung ist die Verwendung des `REUSE`-Tools[^11] der Free Software Foundation Europe zu empfehlen.
+Der **"System Package Data Exchange"-Standard** (SPDX, ISO IEC 5692:2021)[^10] definiert eindeutige Bezeichner für die meisten bekannten Open Source Lizenzen und gibt deren Status hinsichtlich ihrer Anerkennung von der Free Software Foundation oder der Open Source Initiative an. Für eine standardkonforme Lizenzierung ist die Verwendung des `REUSE`-Tools[^11] der Free Software Foundation Europe zu empfehlen.
 
 Empfehlung: Nutze das `REUSE`-Tool zur Lizenzverwaltung!
 
@@ -270,30 +273,46 @@ Empfehlung: Nutze das `REUSE`-Tool zur Lizenzverwaltung!
 
 Sofern die verwendeten externen Komponenten dies zulassen, sollten die eigenen Entwicklungen so "stark" wie möglich in ihrem Copyleft lizenziert werden, d.h.:
 
-Strikte Lizenzierung:
+
+#### Strikte Lizenzierung
 
 - Software: ``AGPL-3.0-or-later``
 - Hardware und Elektronik: ``CERN-OHL-S-2.0-or-later``
 - Dokumentation: ``CERN-OHL-S-2.0-or-later``
 
-Die urhebende Person darf zu jedem Zeitpunkt ihre Dateien neu Lizenzieren.
-Sobald mehrere Personen an einer Datei gearbeitet haben wird diese urheberrechtlich zu einem Gemeinschaftswerk, daher ist es wichtig die Zusammenarbeit in einer *Contributors License Agreement* zu regeln. Ansonsten bedarf es der Zustimmung jeder beteiligten Person!
-Eine Lizenzänderung wirkt sich nicht auf die in der Vergangenheit in Umlauf gebrachte Dateien aus sondern immer nur auf die aktuell bereitgestellten. Alte Versionen sind daher schwer wieder "einzufangen" und können beliebig weiterlizenziert werden (daher von strikt zu freizügig).
-
-Nachteil dieses Vorgehens ist, dass sich strikt lizenzierte Designs schwerer mit anderen Komponenten verknüpfen lassen ohne diese in ihrer Lizenzierung zu beeinflussen (deshalb auch "reziprok"). Was sich wiederum als Hürde hinsichtlich der Akzeptanz und Verbreitung darstellen könnte. Eine zu freizügige Lizenzierung lässt jedoch Verwertungsstrategien wie eine Dual-Lizenzierung unbedeutend werden. Als Kompromiss wird daher oft eine schwache Lizenzierung gewählt.
-
 Die strikte Variante der CERN-OHL 2 (``CERN-OHL-S-2.0``) schließt Netzwerkdienste als Verbreitungsform nicht mit ein, weshalb für eine strikte Lizenzierung abweichend für Software die ``AGPL-3.0`` gewählt werden sollte.
 
 Für die Dokumentation wird häufig eine `CC-BY-SA-4.0` angewendet. Diese schreibt jedoch die Veröffentlichung der Quelldateien der Dokumentation nicht vor. Sofern die Dokumentation ein integraler Bestandteil des Projekts und für die Herstellung des Produkts notwendig ist kann ebenfalls die CERN-OHL-2.0 in ihrer schwachen und strikten Form verwendet werden. Ansonsten ist sind hier die ``GPL-3.0`` oder die ``EUPL-1.2`` (European Union Public License) zu bevorzugen. Letztere kennt allerdings die CERN-OHL-2.0 noch nicht in ihrer [Kompatibilitätsliste](https://interoperable-europe.ec.europa.eu/collection/eupl/matrix-eupl-compatible-open-source-licences).
 
-Für die freizügige und schwache Lizenzierung sind daher für alle Aspekte jeweils die Varianten der CERN-OHL 2 anwendbar:
+
+#### Schwache und freizügige Lizenzierung
+
+Für die freizügige und schwache Lizenzierung sind für alle Aspekte jeweils die Varianten der CERN-OHL 2 anwendbar:
 
 schwach: CERN-OHL-W-2.0-or-later \
 freizügig: CERN-OHL-P-2.0-or-later
 
+**Dokumentation**
+
 Für eine freizügige Lizenzierung einer eigenständigen Dokumentation kann die `CC-BY-4.0` genutzt werden.
 
+
+#### Gemeinfreiheit (Public Domain)
+
 Eine "vollständige" Freigabe in die Gemeinfreiheit (Public Domain) ist nur bedingt möglich und am ehesten mittels `CC0` oder der `Unlicense` möglich.
+
+
+#### Contributors License Agreement (Gemeinschaftswerke)
+
+Sobald mehrere Personen an einer Datei gearbeitet haben wird diese urheberrechtlich zu einem **Gemeinschaftswerk**, daher ist es wichtig die Zusammenarbeit in einer *Contributors License Agreement* zu regeln. Ansonsten bedarf es der Zustimmung jeder beteiligten Person!
+
+
+#### Erläuterungen
+
+Die urhebende Person darf zu jedem Zeitpunkt ihre Dateien neu Lizenzieren.
+Eine Lizenzänderung wirkt sich nicht auf die in der Vergangenheit in Umlauf gebrachte Dateien aus sondern immer nur auf die aktuell bereitgestellten. Alte Versionen sind daher schwer wieder "einzufangen" und können beliebig weiterlizenziert werden (daher von strikt zu freizügig).
+
+Nachteil dieses Vorgehens ist, dass sich strikt lizenzierte Designs schwerer mit anderen Komponenten verknüpfen lassen ohne diese in ihrer Lizenzierung zu beeinflussen (deshalb auch "reziprok"). Was sich wiederum als Hürde hinsichtlich der Akzeptanz und Verbreitung darstellen könnte. Eine zu freizügige Lizenzierung lässt jedoch Verwertungsstrategien wie eine Dual-Lizenzierung unbedeutend werden. Als Kompromiss wird daher oft eine schwache Lizenzierung gewählt.
 
 
 ## 5. Kompatibilität und Modularisierung
@@ -338,7 +357,7 @@ Bekannt als Unix-Philosophie fasst Raymond[^13] diese in 17 Regeln zusammen:
 
 Ergänzend seien folgende Regeln zu nennen:
 
-- “Konvention vor Konfiguration” (siehe diese Richtlinie)
+- “Konvention vor Konfiguration” (siehe dieser Leitfaden)
     - Eine Konvention/Richtlinie reduziert späteren Dokumentationsaufwand
 - Spezialisierung: Anstatt so viele Funktionen wie möglich zu integrieren ist es besser diese in eigene Komponenten aufzuteilen. ("Jede Komponente/Modul hat eine einzige Aufgabe und die erfüllt es auf die Beste Art und Weise!")
     - Dies führt zu einfacheren Schnittstellen und besserer Austauschbarkeit
@@ -346,8 +365,9 @@ Ergänzend seien folgende Regeln zu nennen:
 
 ## Anhang
 
-
 ### OSH Directory Standard - Unixish Version
+
+Quelle: <https://gitlab.com/OSEGermany/osh-dir-std>
 
 ```txt
 .

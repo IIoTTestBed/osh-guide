@@ -1,6 +1,10 @@
-# Open Source Hardware Richtlinie
+# Open Source Hardware Guide
 
-Wir versuchen mit dieser Richtlinie alle relevanten Aspekte bei der Open Source Hardware Entwicklung zu identifizieren und miteinander zu verknüpfen. Es gibt bereits sehr gute Empfehlungen, welche allerdings gerade Neulingen einen zu großen Raum an Freiheitsgraden lassen und diese mit der Frage "was am besten für sie passt" allein lassen. Diese Richtlinie beschreibt detailliert *einen* möglichen Weg um den Einstieg zu erleichtern.
+Auch als Docs-Seite: [https://iiottestbed.github.io/osh-guide/de/](https://iiottestbed.github.io/osh-guide/de/)
+
+**Leitfaden für die Entwicklung von Open Source Hardware**
+
+Wir versuchen mit diesem Leitfaden alle relevanten Aspekte bei der Open Source Hardware Entwicklung zu identifizieren und miteinander zu verknüpfen. Es gibt bereits sehr gute Empfehlungen, welche allerdings gerade Neulingen einen zu großen Raum an Freiheitsgraden lassen und diese mit der Frage "was am besten für sie passt" allein lassen. Dieser Leitfaden beschreibt detailliert *einen* möglichen Weg um den Einstieg zu erleichtern.
 Ziel ist es konkrete Empfehlungen bspw. zur Lizenzierung, Strukturierung, Versionierung oder Dokumentation von OSH-Projekten zu geben.
 
 ![OSH-Guide Konzept](gen/osh-guide_concept.png)
@@ -30,7 +34,7 @@ Struktur:
 
 ## Status
 
-Diese Richtlinie wird im Rahmen des [OSHOP-Projekts](https://www.oshop-network.de/) der HTW Dresden aktiv entwickelt.
+Dieser Leitfaden wird im Rahmen des [OSHOP-Projekts](https://www.oshop-network.de/) der HTW Dresden aktiv entwickelt.
 
 
 ## Standards
@@ -86,7 +90,9 @@ Neben den allgemeinen Vorgaben zur Projektstrukturierung werden in der Konstrukt
 
 ## Lizenz
 
-Diese Richtlinie wird selbst unter der `GPL-3.0-or-later` lizenziert. Da sie nicht direkter Bestandteil einer Dokumentation eines OSH-Projekts ist, sondern ein eigenständiges Projekt darstellt ist die Anwendung der `CERN-OHL-2.0` hier u.U. irreführend. Die `GPL` wurde in der Vergangenheit auch für Texte angewendet.
+Dieser Leitfaden wird selbst unter der `GPL-3.0-or-later` bereitgestellt.
+
+Da dieser Leitfaden nicht direkter Bestandteil einer Dokumentation eines OSH-Projekts ist, sondern ein eigenständiges Projekt darstellt ist die Anwendung der `CERN-OHL-2.0` hier u.U. irreführend. Die `GPL` wurde in der Vergangenheit auch für Dokumentationen angewendet.
 
 
 ## Finanzierung
